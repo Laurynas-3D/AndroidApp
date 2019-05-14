@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn;
+    ToggleButton tbtn;
 
 
     @Override
@@ -20,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
         btn = findViewById(R.id.button1);
 
+        tbtn = findViewById(R.id.toggleButton2);
+
     }
 
     public void btn_Click(View V){ //view V links btnClick appears on activity attributes
+
 
         Log.e("btnClick", "Hey! Veikia!");
 
@@ -34,10 +39,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nextActivity(View V ){
+
+        String username = "Laurynas";
+
         Intent i = new Intent(this,Main3Activity.class );
+
+        i.putExtra("intVal", 25);
+      //  i.putExtra("strVal", "myString");
+        i.putExtra("strVal", username);
         startActivity(i);
         finish();
 
+    }
+
+    public void togglebutton(View v){
+        if(tbtn.isChecked()){
+            Log.e("TogBtn","Button is ON");
+        }
+        else{
+            Log.e("TogBtn","Button is OFF");
+        }
     }
 
 }

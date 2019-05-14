@@ -20,6 +20,14 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
+        Intent i = getIntent();
+        int x = i.getIntExtra("intVal", 0);
+        String str = i.getStringExtra("strVal");
+
+        Log.e("No.2", str + "|" + x);
+
+
+
         txt =  findViewById(R.id.textbox01);
         disp = findViewById(R.id.textView2);
 
